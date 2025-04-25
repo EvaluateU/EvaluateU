@@ -1,19 +1,38 @@
-// EvaluateU: All-in-One React App with Tailwind + Supabase Integration + Homepage Layout
+// EvaluateU: Updated React App with Fake Player Data (No Supabase Needed Yet)
 
-import React, { useEffect, useState } from "react";
-import { supabase } from "./supabase";
+import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [athletes, setAthletes] = useState([]);
-
-  useEffect(() => {
-    const fetchAthletes = async () => {
-      const { data, error } = await supabase.from("players").select("*");
-      if (data) setAthletes(data);
-    };
-    fetchAthletes();
-  }, []);
+  const [athletes, setAthletes] = useState([
+    {
+      id: 1,
+      name: "John Doe",
+      position: "WR",
+      height: "6'1\"",
+      gradYear: "2025",
+      interest: 70,
+      videoURL: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+      id: 2,
+      name: "Mike Smith",
+      position: "LB",
+      height: "6'3\"",
+      gradYear: "2024",
+      interest: 50,
+      videoURL: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+      id: 3,
+      name: "David Johnson",
+      position: "QB",
+      height: "6'2\"",
+      gradYear: "2026",
+      interest: 80,
+      videoURL: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  ]);
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
@@ -65,6 +84,7 @@ function App() {
                   className="w-full"
                   min="0"
                   max="100"
+                  readOnly
                 />
               </div>
               {athlete.videoURL && (
