@@ -1,111 +1,59 @@
-// EvaluateU: Clean React App (No Supabase)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EvaluateU - Football</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-blue-900 font-sans">
 
-import React, { useState } from "react";
-import "./App.css";
+  <!-- Header -->
+  <header class="bg-blue-700 text-white p-4 flex justify-between items-center shadow">
+    <h1 class="text-2xl font-bold">EvaluateU</h1>
+    <nav>
+      <a href="#" class="hover:underline">For Coaches</a>
+      <a href="#" class="ml-6 hover:underline">Submit Profile</a>
+    </nav>
+  </header>
 
-function App() {
-  const [athletes] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      position: "WR",
-      height: "6'1\"",
-      gradYear: "2025",
-      interest: 70,
-      videoURL: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    },
-    {
-      id: 2,
-      name: "Mike Smith",
-      position: "LB",
-      height: "6'3\"",
-      gradYear: "2024",
-      interest: 50,
-      videoURL: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    },
-    {
-      id: 3,
-      name: "David Johnson",
-      position: "QB",
-      height: "6'2\"",
-      gradYear: "2026",
-      interest: 80,
-      videoURL: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    }
-  ]);
+  <!-- Hero Section -->
+  <section class="text-center py-16 bg-blue-100">
+    <h2 class="text-4xl font-bold mb-4">Built for the Gridiron</h2>
+    <p class="text-xl text-blue-800">Showcase top high school football athletes. Help coaches discover rising talent.</p>
+  </section>
 
-  return (
-    <div className="min-h-screen bg-gray-100 font-sans">
-      {/* Hero Section */}
-      <div className="bg-white shadow p-6 flex flex-col items-center text-center">
-        <h1 className="text-4xl font-bold mb-2">EvaluateU</h1>
-        <p className="text-lg text-gray-600 max-w-xl">
-          Scout. Track. Discover under-the-radar talent with a gamified recruiting board inspired by College Football 25.
-        </p>
-        <div className="mt-4 space-x-4">
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-xl">I'm a Coach</button>
-          <button className="px-4 py-2 bg-gray-800 text-white rounded-xl">I'm an Athlete</button>
-        </div>
+  <!-- Athlete Cards -->
+  <section class="px-6 py-10">
+    <h3 class="text-2xl font-semibold mb-6 text-blue-800">🔥 Featured Athletes</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="p-4 bg-blue-50 rounded-lg shadow-md text-center">
+        <h4 class="text-xl font-bold">WR - Jayden Hill</h4>
+        <p class="text-blue-700">Class of 2025 • 6'1" • 180 lbs</p>
+        <p class="mt-2 text-sm">4.5 40yd • 10 TDs • Hudl: link</p>
       </div>
-
-      {/* Filter and Recruiting Board */}
-      <div className="p-6 md:flex gap-6">
-        {/* Filter Sidebar */}
-        <div className="w-full md:w-1/4 bg-white rounded-xl shadow p-4 mb-6 md:mb-0">
-          <h2 className="font-semibold text-lg mb-4">Filters</h2>
-          <input type="text" placeholder="Search by name..." className="w-full mb-2 p-2 border rounded" />
-          <select className="w-full mb-2 p-2 border rounded">
-            <option>Position</option>
-            <option>QB</option>
-            <option>WR</option>
-            <option>LB</option>
-          </select>
-          <select className="w-full mb-2 p-2 border rounded">
-            <option>Class</option>
-            <option>2024</option>
-            <option>2025</option>
-            <option>2026</option>
-          </select>
-        </div>
-
-        {/* Athlete Grid */}
-        <div className="w-full md:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {athletes.map((athlete) => (
-            <div key={athlete.id} className="p-4 border rounded-xl shadow bg-white">
-              <h2 className="text-xl font-bold">{athlete.name}</h2>
-              <p className="text-sm text-gray-600">
-                {athlete.position} • {athlete.height} • Class of {athlete.gradYear}
-              </p>
-              <div className="mt-2">
-                <label className="block text-sm font-medium">Interest Level</label>
-                <input
-                  type="range"
-                  value={athlete.interest || 50}
-                  className="w-full"
-                  min="0"
-                  max="100"
-                  readOnly
-                />
-              </div>
-              {athlete.videoURL && (
-                <a
-                  href={athlete.videoURL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block mt-2 text-blue-500 text-sm"
-                >
-                  Watch Highlights
-                </a>
-              )}
-            </div>
-          ))}
-        </div>
+      <div class="p-4 bg-blue-50 rounded-lg shadow-md text-center">
+        <h4 class="text-xl font-bold">QB - Malik Carter</h4>
+        <p class="text-blue-700">Class of 2024 • 6'2" • 200 lbs</p>
+        <p class="mt-2 text-sm">2200 Pass Yds • 20 TDs • Hudl: link</p>
       </div>
-
-      {/* Footer */}
-      <footer className="text-center p-4 text-sm text-gray-500">© {new Date().getFullYear()} EvaluateU. All rights reserved.</footer>
+      <div class="p-4 bg-blue-50 rounded-lg shadow-md text-center">
+        <h4 class="text-xl font-bold">LB - Rico James</h4>
+        <p class="text-blue-700">Class of 2025 • 6'0" • 210 lbs</p>
+        <p class="mt-2 text-sm">80 Tackles • 3 Sacks • Hudl: link</p>
+      </div>
     </div>
-  );
-}
+  </section>
 
-export default App;
+  <!-- Rising Stars Section -->
+  <section class="px-6 py-10 bg-blue-50">
+    <h3 class="text-2xl font-semibold mb-6 text-blue-800">📈 Rising Stars</h3>
+    <ul class="space-y-4">
+      <li class="bg-white p-4 rounded shadow-md">⭐ WR - Eli Thomas (Up 3 offers this week)</li>
+      <li class="bg-white p-4 rounded shadow-md">⭐ RB - Kevin Miles (Broke 1,000 yds this season)</li>
+      <li class="bg-white p-4 rounded shadow-md">⭐ DB - Micah Reeds (3 INTs in last 2 games)</li>
+    </ul>
+  </section>
+
+</body>
+</html>
